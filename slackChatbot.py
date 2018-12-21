@@ -14,10 +14,7 @@ from flask import Flask, request, make_response, render_template
 
 app = Flask(__name__)
 
-slack_token = 'xoxb-507380538243-507385477939-SKIdvLLs9YtclJ8B9qpoilDt'
-slack_client_id = '507380538243.507320181380'
-slack_client_secret = 'cdb534c31a33e33ee03d8427f04f194a'
-slack_verification = 'dzBBiHE1BYO2X8r79Jh9wg6N'
+# config
 sc = SlackClient(slack_token)
 
 def data_crawling(_url):
@@ -25,7 +22,7 @@ def data_crawling(_url):
     sourcecode = urllib.request.urlopen(url).read()
     return BeautifulSoup(sourcecode, "html.parser")
     
-    
+
 # 요일별 인기 Top 10 만화 
 def week_toon(text):
     soup = data_crawling('https://comic.naver.com/webtoon/weekday.nhn')
